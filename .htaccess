@@ -1,0 +1,35 @@
+<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . index.php [L]
+
+#RewriteEngine on
+#RewriteBase /admin/
+#RewriteCond $1 !^(index.php|resources|robots.txt)
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+
+RewriteEngine on
+RewriteBase /wedingku-prot/
+
+ 
+
+        # Removes index.php from ExpressionEngine URLs
+        RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+        RewriteCond %{REQUEST_URI} !/system/.* [NC]
+        RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+        # Directs all EE web requests through the site index file
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+#kalo pake subdirektori
+        RewriteRule ^(.*)$ index.php/$1 [L]
+#kalo gak pake subdirektori
+        #RewriteRule ^(.*)$ /index.php/$1 [L]
+
+
+</IfModule>
