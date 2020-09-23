@@ -1,2 +1,2 @@
-# weddingku
-Project website weddingku using html, css, javascript, bootstrap, php, codeigniter, adminLTE
+#Wedding Website
+Website project wedding built with HTML CSS Bootstrap, Javascript, PHP, Codeigniter, AdminLTE
